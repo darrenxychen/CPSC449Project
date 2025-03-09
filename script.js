@@ -32,7 +32,7 @@ async function getSongData(songName) {
         <p><strong>Artist:</strong> ${song.artists.map(artist => artist.name).join(", ")}</p>
         <p><strong>Album:</strong> ${song.album.name}</p>
         <img src="${song.album.images.length ? song.album.images[0].url : 'https://via.placeholder.com/150'}" alt="${song.name}" width="200">
-        <p><a href="${song.external_urls.spotify}" target="_blank">Listen on Spotify</a></p>
+        <p><a href="${song.external_urls.spotify}" target="_blank" class="spotify-button">Listen on Spotify</a></p>
     `;
 }
 

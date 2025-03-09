@@ -143,3 +143,23 @@ p {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* for the spotify link button */
+
+.spotify-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #1DB954;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.spotify-button:hover {
+    background: #1ed760;
+}
