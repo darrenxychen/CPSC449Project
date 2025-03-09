@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>WaveGen</title>
     <link rel="stylesheet" href="styles.css">
-    <!--<script src="/HTML/cpsc-449/script.js" type="module"></script>-->
-    
-
 </head>
 <body>
     <header class="header-main">
@@ -24,18 +21,16 @@
         </nav>
     </header>
     
-   
-    
     <h1>Display Spotify Song Data</h1>
     
     <center>
-    <input type="text" id="song-name" placeholder="Enter song name">
-    <button id="search-song">Search</button>
-    <div id="song-info"></div>  
-    
+    <div class="search-container">
+        <input type="text" id="song-name" placeholder="Enter song name">
+        <button id="search-song" class="search-button">Search</button>
+    </div>
+    <div id="song-info" class="song-card"></div>  
     </center>
 
 </body>
-<!--Chnage with your directory. This is Brandon's location-->
 <script src="script.js"></script>
 </html>

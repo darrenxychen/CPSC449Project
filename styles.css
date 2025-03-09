@@ -44,11 +44,9 @@ p {
 .header-main-logo{
     width:fit-content;
     height: 100%;
-    /* background-color: yellow; */
     padding-left: 5px;
     display: flex;
     align-items: center;
-    
 }
 
 .header-main-logo img{
@@ -59,11 +57,10 @@ p {
 .header-main-nav{
     width: fit-content;
     height: 100%;
-    /* background-color: orange; */
 }
 
 .header-main-nav ul{
-    list-style: none; /*remove bullet point*/
+    list-style: none;
     margin-left: 50px;
 }
 
@@ -78,10 +75,71 @@ p {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    
 }
 
 .header-main-nav ul li a:hover{
     color: #4369e4;
-    
+}
+
+/* styling for the search bar */
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
+}
+
+#song-name {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    width: 70%;
+    transition: all 0.3s ease;
+}
+
+#song-name:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4369e4;
+    background: #333333;
+}
+
+.search-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #4369e4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background: #3553b3;
+}
+
+/* styling for the song card */
+.song-card {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: #2a2a2a;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.song-card:empty {
+    display: none;
+}
+
+.song-card:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
 }
