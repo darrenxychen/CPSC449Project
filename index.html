@@ -3,22 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
+    <title>WaveGen</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="/HTML/cpsc-449/script.js" type="module"></script>
 </head>
 <body>
-    <h1>Welcome to the Landing Page</h1>
-    <p>Learn more <a href="about.html">about us</a></p>
+    <header class="header-main">
+        <div class="header-main-logo">
+            <a href="index.html">
+                <img src="img/wavegen-high-resolution-logo-transparent.png" alt="WaveGen Logo">
+            </a>
+        </div>
+        <nav class="header-main-nav">
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="chatbot.html">Chat Bot</a></li>
+            </ul>
+        </nav>
+    </header>
     
     <h1>Display Spotify Song Data</h1>
     
     <center>
-    <input type="text" id="song-name" placeholder="Enter song name">
-    <button id="search-song">Search</button>
-    <div id="song-info"></div>  
+    <div class="search-container">
+        <input type="text" id="song-name" placeholder="Enter song name">
+        <button id="search-song" class="search-button">Search</button>
     </div>
+    <div id="song-info" class="song-card"></div>  
     </center>
 
 </body>
+<script src="script.js"></script>
 </html>
