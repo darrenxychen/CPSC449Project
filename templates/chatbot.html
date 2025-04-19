@@ -23,8 +23,11 @@
     </header>
     <div class="chat-container">
         <div id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Ask something..." />
-        <button onclick="sendMessage()">Send</button>
+        <div class="chat-controls">
+            <input type="text" id="user-input" placeholder="Ask something..." />
+            <button class="chat-button" onclick="sendMessage()">Send</button>
+        </div>
+        
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

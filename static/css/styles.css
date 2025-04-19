@@ -168,42 +168,90 @@ p {
 /* < ------------- Chat Bot Web Settings ------------ >*/
 
 .chat-container {
-    width: 400px;
-    background-color: #5e5c5c;
+    width: 75%;
+    max-width: 900px;
+    background-color: #2a2a2a;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     padding: 20px;
     display: flex;
     flex-direction: column;
     margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #chat-box {
-    height: 300px;
+    height: 60vh;
+    min-height: 300px;
     overflow-y: scroll;
     border: 1px solid #1a1919;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #b3b0b0;
+    background-color: #333333;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 #user-input {
-    padding: 10px;
-    width: calc(100% - 70px);
-    margin-right: 10px;
-    border: 1px solid #585757;
-    border-radius: 5px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4369e4;
+    background: #333333;
 }
 
 .chat-button {
-    padding: 10px;
-    background-color: #007BFF;
-    color: #535353;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    background: #4369e4;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
 }
 
 .chat-button:hover {
-    background-color: #0056b3;
+    background: #3553b3;
+}
+
+/* styling for the messages */
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #4369e4;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.groq-message {
+    align-self: flex-start;
+    background-color: #444444;
+    color: white;
+    border-bottom-left-radius: 5px;
 }

@@ -49,7 +49,16 @@ document.getElementById("search-song").addEventListener("click", () => {
 function addMessage(sender, message) {
     const chatBox = document.getElementById("chat-box");
     const msg = document.createElement("div");
-    msg.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    
+    // different bubble colors for the user and for groq
+    if (sender === "You") {
+        msg.className = "message user-message";
+        msg.textContent = message;
+    } else {
+        msg.className = "message groq-message";
+        msg.textContent = message;
+    }
+    
     chatBox.appendChild(msg);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
