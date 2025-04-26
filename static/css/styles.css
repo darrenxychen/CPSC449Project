@@ -81,6 +81,23 @@ p {
     color: #4369e4;
 }
 
+/* Main layout for the entire page */
+.main-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 60px); /* Subtract header height */
+    align-items: flex-start;
+}
+
+/* Song container for search bar and song info */
+.song-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
 /* styling for the search bar */
 .search-container {
     margin: 20px 0;
@@ -125,9 +142,10 @@ p {
 
 /* styling for the song card */
 .song-card {
-    margin: 20px auto;
+    margin: 0 auto;
     padding: 20px;
     max-width: 600px;
+    width: 100%;
     background: #2a2a2a;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -145,7 +163,6 @@ p {
 }
 
 /* for the spotify link button */
-
 .spotify-button {
     padding: 12px 25px;
     border: none;
@@ -154,16 +171,17 @@ p {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.2s ease;
     margin-top: 15px;
     text-decoration: none;
     display: inline-block;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .spotify-button:hover {
-    background: #1ed760;
+    background: #19a449;
 }
-
 
 /* < ------------- Chat Bot Web Settings ------------ >*/
 
@@ -254,4 +272,62 @@ p {
     background-color: #444444;
     color: white;
     border-bottom-left-radius: 5px;
+}
+
+/* styling for search history */
+.search-history {
+    width: 250px;
+    height: calc(100vh - 60px); /* Full height minus header */
+    background: #2a2a2a;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: sticky;
+    top: 60px;
+}
+
+.search-history h3 {
+    color: #ffffff;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#history-list li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background: #333333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+#history-list li:hover {
+    background: #404040;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .search-history {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        position: static;
+    }
+    
+    .song-container {
+        width: 100%;
+    }
 }
