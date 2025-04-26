@@ -13,30 +13,66 @@ function updateSearchHistoryDisplay() {
     historyList.innerHTML = "";
     
     // display the most recent searches first
-    searchHistory.slice().reverse().forEach(song => {
+    searchHistory.slice().reverse().forEach((songData, index) => {
         const li = document.createElement("li");
-        li.textContent = song;
-        li.addEventListener("click", () => {
-            document.getElementById("song-name").value = song;
-            getSongData(song);
+        li.className = "history-item";
+        
+        // mini song card for each history item
+        li.innerHTML = `
+            <img src="${songData.image || 'https://via.placeholder.com/40'}" alt="${songData.name}" class="history-image">
+            <div class="history-text">
+                <div class="history-song-name">${songData.name}</div>
+                <div class="history-artist-name">${songData.artist}</div>
+            </div>
+            <button class="history-delete-btn" aria-label="Delete from history">×</button>
+        `;
+        
+        // song click handler
+        li.querySelector(".history-text").addEventListener("click", () => {
+            document.getElementById("song-name").value = songData.searchQuery;
+            getSongData(songData.searchQuery);
         });
+        
+        // delete button click handler
+        li.querySelector(".history-delete-btn").addEventListener("click", (e) => {
+            e.stopPropagation(); // prevents clicking the song card
+            removeFromSearchHistory(searchHistory.length - 1 - index); // converts reversed index to actual index
+        });
+        
         historyList.appendChild(li);
     });
 }
 
-// Function to add a song to search history
-function addToSearchHistory(songName) {
-    // if the search is empty, don't add it to the history
-    if (!songName.trim()) return;
+// function to remove a song from search history
+function removeFromSearchHistory(index) {
+    // removes the item at the specified index
+    searchHistory.splice(index, 1);
     
-    // remove duplicate if exists
-    const index = searchHistory.indexOf(songName);
+    // saves updated history
+    localStorage.setItem('songSearchHistory', JSON.stringify(searchHistory));
+    updateSearchHistoryDisplay();
+}
+
+// function to add a song to search history
+function addToSearchHistory(songName, songData) {
+    // if the search is empty, don't add it to the history
+    if (!songName.trim() || !songData) return;
+    
+    const newEntry = {
+        searchQuery: songName,
+        name: songData.name,
+        artist: songData.artists.map(artist => artist.name).join(", "),
+        image: songData.album.images.length ? songData.album.images[songData.album.images.length - 1].url : 'https://via.placeholder.com/40'
+    };
+    
+    // remove duplicate if exists (by song name)
+    const index = searchHistory.findIndex(item => item.name === newEntry.name && item.artist === newEntry.artist);
     if (index !== -1) {
         searchHistory.splice(index, 1);
     }
     
-    // add to the beginning of the array
-    searchHistory.push(songName);
+    // add to the array
+    searchHistory.push(newEntry);
     
     // limit the history size
     if (searchHistory.length > MAX_HISTORY_ITEMS) {
@@ -85,7 +121,7 @@ async function getSongData(songName) {
     `;
     
     // Add search to history after successful search
-    addToSearchHistory(songName);
+    addToSearchHistory(songName, song);
 }
 
 document.getElementById("search-song").addEventListener("click", () => {
