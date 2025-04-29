@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaveGen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header-main">
+        <div class="header-main-logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='img/wavegen-high-resolution-logo-transparent.png') }}" alt="WaveGen Logo">
+            </a>
+        </div>
+        <nav class="header-main-nav">
+            <ul>
+                <li><a href="#">Login</a></li>
+                <li><a href="{{ url_for('index') }}">Search</a></li>
+                <li><a href="{{ url_for('chatbot') }}">Chat Bot</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h1>Display Spotify Song Data</h1>
+    
+    <center>
+    <div class="search-container">
+        <input type="text" id="song-name" placeholder="Enter song name">
+        <button id="search-song" class="search-button">Search</button>
+    </div>
+    <div id="song-info" class="song-card"></div>  
+    </center>
+
+</body>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</html>

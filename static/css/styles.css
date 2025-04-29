@@ -1,0 +1,392 @@
+body, h1, p, nav, a, main {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #171717;
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    margin-top: 80px;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
+p {
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.header-main{
+    width: 100%;
+    height: 60px;
+    background-color: #000000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-main-logo{
+    width:fit-content;
+    height: 100%;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.header-main-logo img{
+    height: 50px;
+    align-self: center;
+}
+
+.header-main-nav{
+    width: fit-content;
+    height: 100%;
+}
+
+.header-main-nav ul{
+    list-style: none;
+    margin-left: 50px;
+}
+
+.header-main-nav ul li{
+    display: inline;
+    float: left;
+    margin-right: 50px;
+}
+
+.header-main-nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+.header-main-nav ul li a:hover{
+    color: #4369e4;
+}
+
+/* Main layout for the entire page */
+.main-layout {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 60px); /* Subtract header height */
+    align-items: flex-start;
+}
+
+/* Song container for search bar and song info */
+.song-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* styling for the search bar */
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    width: 100%;
+    justify-content: center;
+}
+
+#song-name {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    width: 70%;
+    transition: all 0.3s ease;
+}
+
+#song-name:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4369e4;
+    background: #333333;
+}
+
+.search-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #4369e4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background: #3553b3;
+}
+
+/* styling for the song card */
+.song-card {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    background: #2a2a2a;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.song-card:empty {
+    display: none;
+}
+
+.song-card:not(:empty) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* for the spotify link button */
+.spotify-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #1DB954;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 15px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.spotify-button:hover {
+    background: #19a449;
+}
+
+/* < ------------- Chat Bot Web Settings ------------ >*/
+
+.chat-container {
+    width: 75%;
+    max-width: 900px;
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#chat-box {
+    height: 60vh;
+    min-height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #1a1919;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #333333;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#user-input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+#user-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #4369e4;
+    background: #333333;
+}
+
+.chat-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #4369e4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.chat-button:hover {
+    background: #3553b3;
+}
+
+/* styling for the messages */
+
+.message {
+    max-width: 70%;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #4369e4;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.groq-message {
+    align-self: flex-start;
+    background-color: #444444;
+    color: white;
+    border-bottom-left-radius: 5px;
+}
+
+/* styling for search history */
+.search-history {
+    width: 250px;
+    height: calc(100vh - 60px); /* Full height minus header */
+    background: #2a2a2a;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    position: sticky;
+    top: 60px;
+}
+
+.search-history h3 {
+    color: #ffffff;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+#history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#history-list li {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background: #333333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+#history-list li:hover {
+    background: #404040;
+}
+
+/* styles for search history items with images */
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.history-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.history-text {
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.history-song-name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-artist-name {
+    font-size: 0.85em;
+    color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-delete-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+
+.history-delete-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff6b6b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column;
+    }
+    
+    .search-history {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        position: static;
+    }
+    
+    .song-container {
+        width: 100%;
+    }
+}
