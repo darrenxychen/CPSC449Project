@@ -146,18 +146,22 @@ async function getSongData(songName) {
     const song = data.tracks.items[0];
 
     document.getElementById("song-info").innerHTML = `
-        <h2>${song.name}</h2>
-        <p><strong>Artist:</strong> ${song.artists.map(artist => artist.name).join(", ")}</p>
-        <p><strong>Album:</strong> ${song.album.name}</p>
-        <img src="${song.album.images.length ? song.album.images[0].url : 'https://via.placeholder.com/150'}" alt="${song.name}" width="200">
-        <p><a href="${song.external_urls.spotify}" target="_blank" class="spotify-button">Listen on Spotify</a></p>
-        <div id="song-description"><em>Loading description...</em></div>
+        <div class="song-info-container">
+            <div class="song-details">
+                <h2>${song.name}</h2>
+                <p><strong>Artist:</strong> ${song.artists.map(artist => artist.name).join(", ")}</p>
+                <p><strong>Album:</strong> ${song.album.name}</p>
+                <img src="${song.album.images.length ? song.album.images[0].url : 'https://via.placeholder.com/150'}" alt="${song.name}" width="200">
+                <p><a href="${song.external_urls.spotify}" target="_blank" class="spotify-button">Listen on Spotify</a></p>
+            </div>
+            <div id="song-description"><em>Loading description...</em></div>
+        </div>
     `;
 
     // call function to get desc from AI and put it under the song
     const description = await getSongDescription(song.name, song.artists.map(artist => artist.name).join(", "));
     const descriptionDiv = document.getElementById("song-description");
-    descriptionDiv.innerHTML = `<p><strong>AI Description:</strong> ${description}</p>`;
+    descriptionDiv.innerHTML = `<p>${description}</p>`;
 
     // Add search to history after successful search
     addToSearchHistory(songName, song);
