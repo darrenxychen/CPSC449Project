@@ -1,6 +1,7 @@
 const CLIENT_ID = "09bc150f223e4e3ebf65fa757c60a889";
 const CLIENT_SECRET = "7413757e943a481cb2e457dbbe92fc1a";
-const API_KEY = "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"; 
+const API_KEY = "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"; 
+// const API_KEY = "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"; 
 const API_URL = "https://api.groq.com/openai/v1/chat/completions"; 
 
 // take the search history from local storage or create an empty array
